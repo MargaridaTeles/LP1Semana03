@@ -29,6 +29,9 @@ namespace ArrayMul
                     index++;
                 }
             }
+            
+            /*Console.WriteLine($"| {A[0][0]}, {A[0][1]} |");
+            Console.WriteLine($"| {A[1][0]}, {A[1][1]} |");*/
 
             for (int i = 0; i < 2; i++)
             {
