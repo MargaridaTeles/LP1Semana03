@@ -6,20 +6,51 @@ namespace ArrayMul
     {
         private static void Main(string[] args)
         {
-            // Arrays de Arrays
-            float[][] matrix = new float[4][];
+            // --------- Arrays de Arrays ---------
+            float[][] A = new float[2][];
+            A[0] = new float[2];
+            A[1] = new float[2];
 
-            // Arrays Multi
+            float[][] B = new float[2][];
+            B[0] = new float[1];
+            B[1] = new float[1];
+
+            float[][] R = new float[2][];
+            R[0] = new float[1];
+            R[1] = new float[1];
+
+            int index = 0;
+            
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    A[i][j] = float.Parse(args[index]);
+                    index++;
+                }
+            }
+
+            for (int i = 0; i < 2; i++)
+            {
+                B[i][0] = float.Parse(args[index]);
+                index++;
+            }
+
+            for (int i = 0; i < 2; i++)
+            {
+                R[i][0] = A[i][0] * B[0][0] +
+                          A[i][1] * B[1][0];
+            }
+
+            for (int i = 0; i < 2; i++)
+                Console.WriteLine($"| {R[i][0],7:F2} |");
+
+            
+            // --------- Arrays Multi ---------
             float [ , ] matrixA = new float[2, 2];
             float [ , ] matrixB = new float[2, 1];
 
             float [ , ] result = new float [2, 1];
-
-            if (args.Length < 6)
-            {
-                Console.WriteLine("Erro: são necessários 6 argumentos numéricos.");
-                return;
-            }
 
 
             int contador = 0;
