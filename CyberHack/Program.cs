@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace CyberHack
 {
@@ -6,7 +7,42 @@ namespace CyberHack
     {
         private static void Main(string[] args)
         {
-            string systemType = Console.ReadLine();
+            SystemType systemType = Enum.Parse<SystemType>(Console.ReadLine());
+            string[] tools = Console.ReadLine().Split();
+
+
+            bool hasBruteForce = tools.Contains("BruteForce");
+            bool hasPhishing = tools.Contains("Phishing");
+            bool hasBackdoor = tools.Contains("Backdoor");
+            bool hasZeroDay = tools.Contains("ZeroDay");
+            bool hasAIOverride = tools.Contains("AIOverride");
+            bool hasQuantumExploit = tools.Contains("QuantumExploit");
+
+            bool hacked = false;
+
+            switch (systemType)
+            {
+                case SystemType.CorporateServer:
+                    hacked = (hasPhishing || hasBackdoor) && (hasBruteForce || hasZeroDay);
+                    break;
+                
+                case SystemType.BankDatabase:
+                    hacked = (hasZeroDay && hasBackdoor) || (hasQuantumExploit && hasAIOverride);
+                    break;
+
+                case SystemType.SmartCityCore:
+                    hacked = (hasAIOverride && hasBackdoor) || (hasZeroDay && hasBruteForce) || (hasQuantumExploit && hasPhishing);
+                    break;
+
+                case SystemType.MilitaryAI:
+                    hacked = (hasZeroDay && hasAIOverride) && (hasBackdoor || hasBruteForce) && (hasPhishing || hasQuantumExploit);
+                    break;
+            }
+
+            Console.WriteLine(hacked ? "System Hacked" : "System Secure");
+
+
+            /*string systemType = Console.ReadLine();
             string hackTools = Console.ReadLine();
             string[] hack = hackTools.Split(" ");
             
@@ -26,6 +62,7 @@ namespace CyberHack
             {
                 foreach (string tool in hack)
                 {
+                    Console.WriteLine(tool);
                     if ((tool == phishing || tool == backdoor) && (tool == bruteForce || tool == zeroDay))
                         Console.WriteLine("System Hacked");
                     else
@@ -62,7 +99,7 @@ namespace CyberHack
                     else
                         Console.WriteLine("System Secure");
                 }
-            }
+            }*/
         }
     }
 }
