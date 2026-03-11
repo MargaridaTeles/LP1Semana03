@@ -35,9 +35,9 @@ namespace RoPaSci
             if (player1Wins)
                 result = 1; // Player 1 wins
             else
-                result = 2;
+                result = 2; // Player 2 wins
             
-            return result; // Player 2 wins
+            return result;
         }
     }
 }
