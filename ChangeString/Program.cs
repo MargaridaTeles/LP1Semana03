@@ -4,9 +4,15 @@ namespace ChangeString
 {
     public class Program
     {
+        private static int Feitico(int nivel)
+        {
+            if (nivel == 0)
+                return 1;
+            return 2 * Feitico(nivel - 1);
+        }
         private static void Main(string[] args)
         {
-            Console.Write("String: ");
+            /*Console.Write("String: ");
             string answer = Console.ReadLine();
 
             
@@ -24,7 +30,8 @@ namespace ChangeString
                     answerUpdate += s;
             }
             
-            Console.WriteLine($"Será impresso: {answerUpdate}");
+            Console.WriteLine($"Será impresso: {answerUpdate}");*/
+            Console.WriteLine(Feitico(4));
         }
     }
 }
