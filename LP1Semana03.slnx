@@ -6,5 +6,6 @@
   <Project Path="HeroPerk/HeroPerk.csproj" />
   <Project Path="Pow2Until/Pow2Until.csproj" />
   <Project Path="RightSize/RightSize.csproj" />
+  <Project Path="RoPaSci/RoPaSci.csproj" />
   <Project Path="TestaOsArgs/TestaOsArgs.csproj" />
 </Solution>
